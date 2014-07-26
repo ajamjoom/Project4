@@ -15,7 +15,11 @@ Route::get('/', array( 'before' => 'auth','uses'=> 'MainController@showhomepage'
 
 Route::get('/add_question', array( 'before' => 'auth','uses'=> 'MainController@showaddquestion'));
 
+Route::post('/add_question', array( 'before' => 'auth','uses'=> 'MainController@processaddquestion'));
+
 Route::get('/view_all_questions', array( 'before' => 'auth','uses'=> 'MainController@showallquestions'));
+
+Route::post('/view_all_questions', array( 'before' => 'auth','uses'=> 'MainController@processallquestions'));
 
 Route::get('/view_all_my_forums', array( 'before' => 'auth','uses'=> 'MainController@showallmyforums'));
 
