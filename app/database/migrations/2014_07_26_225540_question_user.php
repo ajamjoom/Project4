@@ -12,11 +12,14 @@ class QuestionUser extends Migration {
 	 */
 	public function up(){
 	
-		Schema::create('question_user', function($table)
-   		 {
-     	   $table->increments('id');
-        	$table->integer('question_id');
-        	$table->integer('user_id');
+		Schema::create('question_user', function($table){
+
+     	 	$table->integer('question_id')->unsigned();
+			$table->integer('user_id')->unsigned();
+			
+			# Define foreign keys...
+			$table->foreign('question_id')->references('id')->on('questions');
+			$table->foreign('user_id')->references('id')->on('users');
     	});
 	}
 
